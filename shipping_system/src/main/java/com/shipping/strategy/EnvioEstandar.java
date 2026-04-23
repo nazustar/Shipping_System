@@ -2,11 +2,11 @@ package com.shipping.strategy;
 
 import com.shipping.singleton.ConfiguracionSistema;
 
-public class EnvioEstandar implements EstrategiaEnVivo {
+public class EnvioEstandar implements EstrategiaEnvio {
 
     @Override
     public double calcularCosto(double base, ConfiguracionSistema config) {
-        base = 5000;
+        // Aplicacion para envio estandar.
         return base + (base * config.getImpuesto());
     }
     
