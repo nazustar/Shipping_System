@@ -1,5 +1,8 @@
 package com.shipping.strategy;
 
-public interface EstrategiaEnVivo {
+import com.shipping.singleton.ConfiguracionSistema;
 
+public interface EstrategiaEnVivo {
+    // Estrategia para calcular costo.
+    public double calcularCosto(double base, ConfiguracionSistema config);
 }
