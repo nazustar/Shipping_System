@@ -6,7 +6,10 @@ public class EnvioExpress implements EstrategiaEnvio {
 
     @Override
     public double calcularCosto(double base, ConfiguracionSistema config) {
-        double recargo = 10000;
+        // Aplicacion para envio express.
+        // Con recargo fijo de 20000.
+        
+        double recargo = 20000;
         double total = base + recargo;
         return total + (total * config.getImpuesto());
     }
