@@ -1,4 +1,4 @@
-package com.shipping.observer;
+package src.observer;
 
 public interface Observer {
     void actualizar(String estado);      

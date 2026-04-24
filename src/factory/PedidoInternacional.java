@@ -1,4 +1,4 @@
-package com.shipping.factory;
+package src.factory;
 
 public class PedidoInternacional extends Pedido {
     

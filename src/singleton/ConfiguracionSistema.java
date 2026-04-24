@@ -1,4 +1,4 @@
-package com.shipping.singleton;
+package src.singleton;
 
 public class ConfiguracionSistema {
     private static ConfiguracionSistema configuracionSistema;

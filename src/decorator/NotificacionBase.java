@@ -1,4 +1,4 @@
-package com.shipping.decorator;
+package src.decorator;
 
 // Componente concreto.
 public class NotificacionBase extends Notificacion {

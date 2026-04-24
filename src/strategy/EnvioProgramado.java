@@ -1,6 +1,6 @@
-package com.shipping.strategy;
+package src.shipping.strategy;
 
-import com.shipping.singleton.ConfiguracionSistema;
+import src.ConfiguracionSistema;
 
 public class EnvioProgramado implements EstrategiaEnvio {
 

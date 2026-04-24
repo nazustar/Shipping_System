@@ -1,4 +1,4 @@
-package com.shipping.decorator;
+package src.decorator;
 
 // Componente de decorador.
 public abstract class ExtensionDecorator extends Notificacion {

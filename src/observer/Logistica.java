@@ -1,4 +1,4 @@
-package com.shipping.observer;
+package src.observer;
 
 import com.shipping.decorator.Notificacion;
 
@@ -14,9 +14,8 @@ public class Logistica implements Observer {
     public void actualizar(String estado) {
         // Logistica recibe el estado del pedido.
         System.out.println("Logistica notificada:" + estado);
-        
+
         // Luego envia una notificacion al cliente.
         notificacion.enviarNotificacion(estado);
-    }
     }
 }

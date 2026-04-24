@@ -1,4 +1,4 @@
-package com.shipping.decorator;
+package src.decorator;
 
 public class Cifrado extends ExtensionDecorator {
 

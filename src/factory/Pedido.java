@@ -1,14 +1,15 @@
-package com.shipping.factory;
+package src.factory;
 
 import java.util.ArrayList;
 import java.util.List;
-import com.shipping.observer.Observer;
 
-import com.shipping.observer.Subject;
+import src.observer.Observer;
+
+import src.observer.Subject;
 
 public abstract class Pedido implements Subject {
 
-    // Implementacion de los observers
+    // Implementacion de los observers.
     private List<Observer> observers = new ArrayList<>();
     private String estado;
 
