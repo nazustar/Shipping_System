@@ -2,14 +2,19 @@ package com.shipping.decorator;
 
 public class Logging extends ExtensionDecorator {
 
-          @Override
-          public String getDescription() {
-                    return description;
-          }
+    public Logging(Notificacion notificacion) {
+        super(notificacion);
+    }
 
-          @Override
-          public void agregarDecoracion() {
-                    description = getDescription() + " Se ha hecho una accion \n";
-          }
+    @Override
+    public String getDescription() {
+        return description;
+    }
+
+    @Override
+        public void enviarNotificacion(String estado) {
+        description = getDescription() + " Se ha hecho una accion \n";
+        notificacion.enviarNotificacion(estado);
+    }
     
 }
