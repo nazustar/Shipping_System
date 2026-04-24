@@ -12,6 +12,11 @@ public class Logistica implements Observer {
 
     @Override
     public void actualizar(String estado) {
-        System.out.println("Logistica notificada: " + estado);
+        // Logistica recibe el estado del pedido.
+        System.out.println("Logistica notificada:" + estado);
+        
+        // Luego envia una notificacion al cliente.
+        notificacion.enviarNotificacion(estado);
+    }
     }
 }

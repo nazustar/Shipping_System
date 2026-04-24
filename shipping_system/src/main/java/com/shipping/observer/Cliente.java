@@ -1,14 +1,17 @@
 package com.shipping.observer;
 
 public class Cliente implements Observer {
-    private String message;
 
-    public Cliente (String message){
-        this.message = message;
+    // Agregacion de nombre, el estado viene de pedido.
+    private String name;
+
+    public Cliente (String name){
+        this.name = name;
     }
 
+    // Muestra el estado del pedido al cliente.
     @Override
-    public void actualizar(String mensaje) {
-        System.out.println("Cliente notificado:" + message);
+    public void actualizar(String estado) {
+        System.out.println("Cliente " + name + " notificado:" + estado);
     }
 }
