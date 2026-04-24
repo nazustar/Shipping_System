@@ -4,8 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 import src.observer.Observer;
 import src.observer.Subject;
+import src.singleton.ConfiguracionSistema;
+import src.strategy.EstrategiaEnvio;
 
 public abstract class Pedido implements Subject {
+
+    private EstrategiaEnvio estrategia;
 
     // Implementacion de los observers.
     private List<Observer> observers = new ArrayList<>();
@@ -35,8 +39,18 @@ public abstract class Pedido implements Subject {
         notifyObservers();
     }
 
+    
+    public void setEstrategia(EstrategiaEnvio estrategia) {
+        this.estrategia = estrategia;
+    }
+
     // Getter para el estado.
     public String getEstado() {
         return estado;
+    }
+
+    public double calcularCosto(double base) {
+        ConfiguracionSistema config = ConfiguracionSistema.getInstance();
+        return estrategia.calcularCosto(base, config);
     }
 }

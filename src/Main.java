@@ -12,7 +12,6 @@ import src.singleton.ConfiguracionSistema;
 import src.strategy.EnvioEstandar;
 import src.strategy.EnvioExpress;
 import src.strategy.EnvioProgramado;
-import src.strategy.EstrategiaEnvio;
 
 public class Main {
     public static void main(String[] args) {
@@ -21,34 +20,33 @@ public class Main {
         config.setImpuesto(0.19);
         config.setMoneda("COP");
         config.setDescuento(5000);
+        System.out.println("Moneda: " + config.getMoneda() + " | Impuesto: " + config.getImpuesto());
 
         Pedido pedido = PedidoFactory.createPedido("nacional");
-
-
-        Cliente cliente = new Cliente("David");
+        System.out.println("Pedido creado: " + pedido.getClass().getSimpleName());
 
         Notificacion notificacion = new Cifrado(new Logging(new NotificacionBase()));
         System.out.println("Decoradores activos: " + notificacion.getDescription());
 
-        Logistica logistica = new Logistica(notificacion);
 
+        Cliente cliente = new Cliente("David");
+        Logistica logistica = new Logistica(notificacion);
         pedido.addObserver(cliente);
         pedido.addObserver(logistica);
 
-
-        EstrategiaEnvio estrategia = new EnvioEstandar();
+        pedido.setEstrategia(new EnvioEstandar());
         System.out.println("\n--- Envio Estandar ---");
-        System.out.println("Costo: " + estrategia.calcularCosto(50000, config));
+        System.out.println("Costo: " + pedido.calcularCosto(50000));
         pedido.setEstado("EN_PREPARACION");
 
-        estrategia = new EnvioExpress();
+        pedido.setEstrategia(new EnvioExpress());
         System.out.println("\n--- Envio Express ---");
-        System.out.println("Costo: " + estrategia.calcularCosto(50000, config));
+        System.out.println("Costo: " + pedido.calcularCosto(50000));
         pedido.setEstado("ENVIADO");
 
-        estrategia = new EnvioProgramado();
+        pedido.setEstrategia(new EnvioProgramado());
         System.out.println("\n--- Envio Programado ---");
-        System.out.println("Costo: " + estrategia.calcularCosto(50000, config));
+        System.out.println("Costo: " + pedido.calcularCosto(50000));
         pedido.setEstado("ENTREGADO");
     }
 }
