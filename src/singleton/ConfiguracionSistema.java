@@ -8,38 +8,43 @@ public class ConfiguracionSistema {
     private double descuento;
 
     // Constructor privado para instancias.
-    public static ConfiguracionSistema casosMonedas (){
-        if(configuracionSistema == null){
-            ConfiguracionSistema.configuracionSistema = new ConfiguracionSistema();
-            return configuracionSistema;
-        }else {
-            return configuracionSistema;
+    private ConfiguracionSistema() {
+        this.impuesto = 0.19;
+        this.moneda = "COP";
+        this.descuento = 0.0;
+    }
+
+    // Método renombrado a getInstance() — convención estándar del Singleton.
+    // Synchronized para evitar problemas con múltiples hilos.
+    public static synchronized ConfiguracionSistema getInstance() {
+        if (configuracionSistema == null) {
+            configuracionSistema = new ConfiguracionSistema();
         }
+        return configuracionSistema;
     }
 
     // Getters y setters.
-    public double getImpuesto (){
+    public double getImpuesto() {
         return impuesto;
     }
 
-    public String getMoneda (){
+    public String getMoneda() {
         return moneda;
     }
 
-    public double getDescuento (){
+    public double getDescuento() {
         return descuento;
     }
 
-    public void setImpuesto (double impuesto){
-        impuesto = this.impuesto;
+    public void setImpuesto(double impuesto) {
+        this.impuesto = impuesto;
     }
 
-    public void setMoneda (String moneda){
-        moneda = this.moneda;
+    public void setMoneda(String moneda) {
+        this.moneda = moneda;
     }
 
-    public void setDescuento (double descuento){
-        descuento = this.descuento;
+    public void setDescuento(double descuento) {
+        this.descuento = descuento;
     }
-
 }

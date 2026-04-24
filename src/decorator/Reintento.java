@@ -11,14 +11,15 @@ public class Reintento extends ExtensionDecorator {
 
     @Override
     public String getDescription() {
-        return description;
+        return notificacion.getDescription() + " + Reintento(x" + intentos + ")";
     }
 
     @Override
     public void enviarNotificacion(String estado) {
-        intentos++;
-        description = getDescription() + " Sea han realizado " + intentos + " intentos";
-        notificacion.enviarNotificacion(estado);
+        // Reintenta la notificacion el número de veces indicado.
+        for (int i = 1; i <= intentos; i++) {
+            System.out.println("[REINTENTO] Intento " + i + " de " + intentos);
+            notificacion.enviarNotificacion(estado);
+        }
     }
-    
 }

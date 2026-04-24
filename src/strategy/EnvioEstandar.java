@@ -9,5 +9,4 @@ public class EnvioEstandar implements EstrategiaEnvio {
         // Aplicacion para envio estandar.
         return base + (base * config.getImpuesto());
     }
-    
 }

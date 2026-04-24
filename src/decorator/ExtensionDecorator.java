@@ -16,6 +16,6 @@ public abstract class ExtensionDecorator extends Notificacion {
 
     @Override
     public void enviarNotificacion(String estado) {
-        notificacion.enviarNotificacion (estado);
+        notificacion.enviarNotificacion(estado);
     }
 }

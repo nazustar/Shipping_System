@@ -2,9 +2,7 @@ package src.factory;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import src.observer.Observer;
-
 import src.observer.Subject;
 
 public abstract class Pedido implements Subject {

@@ -5,16 +5,17 @@ public class Cifrado extends ExtensionDecorator {
     public Cifrado(Notificacion notificacion) {
         super(notificacion);
     }
-    
-    @Override
-    public String getDescription() {
-        return notificacion.getDescription();
-    }
 
     @Override
-        public void enviarNotificacion(String estado) {
-            System.out.println("Cifrando notificacion...");
-            notificacion.enviarNotificacion(estado);
-        }
-    
+    public String getDescription() {
+        return notificacion.getDescription() + " + Cifrado";
+    }
+
+    // Mejora del cifrado.
+    @Override
+    public void enviarNotificacion(String estado) {
+        String cifrado = java.util.Base64.getEncoder().encodeToString(estado.getBytes());
+        System.out.println("[CIFRADO] Mensaje cifrado: " + cifrado);
+        notificacion.enviarNotificacion(cifrado);
+    }
 }

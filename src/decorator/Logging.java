@@ -8,13 +8,12 @@ public class Logging extends ExtensionDecorator {
 
     @Override
     public String getDescription() {
-        return description;
+        return notificacion.getDescription() + " + Logging";
     }
 
     @Override
-        public void enviarNotificacion(String estado) {
-        description = getDescription() + " Se ha hecho una accion \n";
+    public void enviarNotificacion(String estado) {
+        System.out.println("[LOG] Se ha hecho una accion con estado: " + estado);
         notificacion.enviarNotificacion(estado);
     }
-    
 }
